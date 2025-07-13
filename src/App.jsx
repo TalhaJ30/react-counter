@@ -50,7 +50,7 @@ function App() {
     } else if (symboll === "/") {
       result = num1 / num2
     } else {
-      result = "Invalid symbol";
+      result = "Invalid Output";
 
     };
 
