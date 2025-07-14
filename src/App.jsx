@@ -1,38 +1,31 @@
 import React, { useState } from "react"
+import Inputcounter from "./Inputcounter.jsx"
+import Percentage from "./Percentage.jsx";
 
 function App() {
 
-  const [number, setnumber] = useState();
-  const [anothernumber, setanothernumber] = useState();
-  const [symboll, setsymboll] = useState();
-  const [result, setresult] = useState();
-  const [show, setshow] = useState(false);
-  const input_1 = (event) => {
-    setnumber(event.target.value)
-  }
-  const input_2 = (event) => {
-    setanothernumber(event.target.value);
-  }
+  const [button1 , setbutton1] = useState(false);
+  const [button2 , setbutton2] = useState(true);
 
   const symbollinput = (event) => {
     setsymboll(event.target.value);
   }
 
-  const resetbtn = () => {
-    if (confirm('Are You Sure to Reset Your Data')) {
-      console.log('Reset Confirmed');
-      setnumber('');
-      setanothernumber('');
-      setsymboll('');
-      setshow(false);
-
-    }
-    else{
-      console.log('Cancel Confirmed')
-    }
+  const reactC = () => {
+    console.log('react counter button clicked');
+    setbutton1(true);
+    setbutton2(false);
+  }
+  const perbtn = () => {
+    console.log('percentage button clicked');
+    setbutton1(false);
+    setbutton2(true);
+  }
+ 
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 grid items-center justify-center p-4">
+     
     
-
-
   }
 
   const btn = () => {
@@ -96,46 +89,24 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 border border-red-200 transition-transform duration-300 hover:scale-[1.02]">
-        <h1 className="text-4xl md:text-5xl text-red-500 font-normal text-center mb-8 tracking-tight drop-shadow-lg select-none transition-colors duration-300 hover:text-red-600">
-          React Input Counter
-        </h1>
-        <div className="flex flex-col gap-6">
-          <input
-            type="number"
-            value={number}
-            onChange={(event) => input_1(event)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
-            placeholder="Enter a number"
-          />
-          <input
-            type="text"
-            value={symboll}
-            onChange={(event) => symbollinput(event)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
-            placeholder="Select The Any Symboll For Calculation"
-          />
-          <input
-            type="number"
-            value={anothernumber}
-            onChange={(event) => input_2(event)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
-            placeholder="Enter another number"
-          />
-          <div className="flex gap-4 mt-2">
-            <button
-
-              className="flex-1 bg-red-400 text-white font-semibold py-2 rounded-lg shadow-md transition-all duration-200 hover:bg-red-500 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-300"
-              onClick={() => btn()}          >
-              Show Sum
-            </button>
-            <button
-              onClick={(event) => resetbtn(event)}
-              className="flex-1 bg-gray-200 text-gray-700 font-semibold py-2 rounded-lg shadow-md transition-all duration-200 hover:bg-gray-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-300">
-              Reset
-            </button>
-
-            {/* <button
-             
+      <div className="flex justify-center gap-4 mb-5 flex-wrap">
+          <button
+          onClick={() => reactC()}
+            className="px-4 py-2 rounded-lg font-semibold transition-all duration-200 border-2 focus:outline-none shadow-sm text-sm sm:text-base bg-white text-red-500 border-red-200 hover:bg-red-500 hover:text-white hover:scale-105"
+          >   
+            Counter
+          </button>
+          <button
+             onClick={() => perbtn()}
+            className="px-4 py-2 rounded-lg font-semibold transition-all duration-200 border-2 focus:outline-none shadow-sm text-sm sm:text-base bg-white text-red-500 border-red-200 hover:bg-red-500 hover:text-white hover:scale-105"
+          >
+            Percentage
+          </button>
+        </div>
+        <div>
+          {button1 &&  <Inputcounter></Inputcounter>}
+          {button2 &&    <Percentage></Percentage>}
+        
               className="flex-1 bg-gray-200 text-gray-700 font-semibold py-2 rounded-lg shadow-md transition-all duration-200 hover:bg-gray-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-300"
             >
               Reset
@@ -170,5 +141,8 @@ function App() {
     </div>
   )
 }
-
-export default App
+        <div>
+          {button1 &&  <Inputcounter></Inputcounter>}
+          {button2 &&    <Percentage></Percentage>}
+        
+        </div>
