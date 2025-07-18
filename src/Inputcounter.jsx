@@ -106,6 +106,12 @@ const Inputcounter = () => {
                React Input Counter 
             </h1>
             <div className="flex flex-col gap-6">
+                {/* 
+                  Issue: The input type is "number", which means if the field is empty, its value will be an empty string (""), not 0. 
+                  This can cause issues in validation logic if you check for num1 == 0, because an empty string is falsy but not equal to 0.
+                  Also, using == 0 to check for "empty" is not robust for user input.
+                  Solution: Consider checking for empty string or using Number(number) === 0 if you want to check for zero.
+                */}
                 <input
                     type="number"
                     value={number}
