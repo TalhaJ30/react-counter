@@ -102,7 +102,7 @@ const Inputcounter = () => {
     return (
         <>
 
-            <h1 className="text-4xl md:text-5xl text-red-500 font-normal text-center mb-8 tracking-tight drop-shadow-lg select-none transition-colors duration-300 hover:text-red-600">
+            <h1 className="text2xl md:text-5xl text-red-500 font-normal text-center mb-8 tracking-tight drop-shadow-lg select-none transition-colors duration-300 hover:text-red-600">
                React Input Counter 
             </h1>
             <div className="flex flex-col gap-6">
@@ -118,7 +118,7 @@ const Inputcounter = () => {
                     value={symboll}
                     onChange={(event) => symbollinput(event)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
-                    placeholder="Select The Any Symbol For Calculation"
+                    placeholder="Symbols + - / * **"
                 />
                 <input
                     type="number"
