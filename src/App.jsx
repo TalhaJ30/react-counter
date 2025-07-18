@@ -4,8 +4,8 @@ import Percentage from "./Percentage.jsx";
 
 function App() {
 
-  const [button1 , setbutton1] = useState(false);
-  const [button2 , setbutton2] = useState(true);
+  const [button1 , setbutton1] = useState(true);
+  const [button2 , setbutton2] = useState(false);
 
 
   const reactC = () => {

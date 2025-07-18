@@ -4,50 +4,50 @@ import React, { useState } from "react";
 
 
 const Percentage = () => {
-    const [obtainedvalue , setobtainedvalue] = useState('');
-    const [totalvalue , settotalvalue] = useState('');
-    const [result , setresult] = useState('');
-    const [resultbox , setresultbox] = useState(false);
+    const [obtainedvalue, setobtainedvalue] = useState('');
+    const [totalvalue, settotalvalue] = useState('');
+    const [result, setresult] = useState('');   
+    const [resultbox, setresultbox] = useState(false);
 
-  const inpone = (event) => {
-    console.log(event.target.value);
-    setobtainedvalue(event.target.value);
-  }
-  const inptwo = (event) => {
-    settotalvalue(event.target.value);
-    console.log(event.target.value);
-  }
-
-  const btn = () => {
-    
-    const value1 = Number(obtainedvalue);
-    const value2 = Number(totalvalue);
-    const mainresult = Math.floor((value1 / value2 * 100));
-    setresult(mainresult + '%');
-    console.log(mainresult);
-    setresultbox(true)
-    if (!obtainedvalue || !totalvalue ||(totalvalue) === 0) {
-        setresult('Invalid input');
-        return;
-      }
-  }
-  const reset = () => {
-
-    if (confirm('Are you sure to reset your data')) {
-        setresult(''); 
-        settotalvalue('');
-        setobtainedvalue('');
-        setresultbox(false);
-        console.log('successfully reset');   
+    const inpone = (event) => {
+        console.log(event.target.value);
+        setobtainedvalue(event.target.value);
     }
-    else{
-        console.log('Cancel reset')
+    const inptwo = (event) => {
+        settotalvalue(event.target.value);
+        console.log(event.target.value);
     }
 
-   
+    const btn = () => {
+
+        const value1 = Number(obtainedvalue);
+        const value2 = Number(totalvalue);
+        const mainresult = Math.floor((value1 / value2 * 100));
+        setresult(mainresult + '%');
+        console.log(mainresult);
+        setresultbox(true)
+        if (!obtainedvalue || !totalvalue || (totalvalue) === 0) {
+            setresult('Invalid input');
+            return;
+        }
+    }
+    const reset = () => {
+
+        if (confirm('Are you sure to reset your data')) {
+            setresult('');
+            settotalvalue('');
+            setobtainedvalue('');
+            setresultbox(false);
+            console.log('successfully reset');
+        }
+        else {
+            console.log('Cancel reset')
+        }
 
 
-  } 
+
+
+    }
 
     return (
         <>
@@ -65,7 +65,7 @@ const Percentage = () => {
                     />
 
                     <input
-                    value={totalvalue}
+                        value={totalvalue}
                         type="number"
                         onChange={(event) => inptwo(event)}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
@@ -86,18 +86,18 @@ const Percentage = () => {
 
 
                     </div>
-                  
-                {resultbox && 
-                    <div className="w-full mt-1 flex justify-center">
-                    <div className="w-full max-w-xs bg-red-50 border border-red-200 rounded-xl shadow-md p-4 flex items-center justify-center transition-all duration-300 hover:shadow-lg">
-                        <p className="text-xl md:text-2xl font-medium text-red-600 text-center break-words">
-                            Result = {result}
-                        </p>
-                    </div>
-                </div>
-                }
-                  
-                   
+
+                    {resultbox &&
+                        <div className="w-full mt-1 flex justify-center">
+                            <div className="w-full max-w-xs bg-red-50 border border-red-200 rounded-xl shadow-md p-4 flex items-center justify-center transition-all duration-300 hover:shadow-lg">
+                                <p className="text-xl md:text-2xl font-medium text-red-600 text-center break-words">
+                                    Result = {result}
+                                </p>
+                            </div>
+                        </div>
+                    }
+
+
 
                 </div>
             </div>
