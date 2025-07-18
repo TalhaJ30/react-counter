@@ -98,6 +98,23 @@ const Inputcounter = () => {
 
     }
 
+    const btnone = () => {
+        setsymboll('+');
+    }
+    const btntwo = () => {
+        setsymboll('-');
+    }
+    const btnthree = () => {
+        setsymboll('/');
+    }
+    const btnfour = () => {
+        setsymboll('*');
+    }
+    const btnfive = () => {
+        setsymboll('**');
+    }
+
+
 
     return (
         <>
@@ -124,8 +141,30 @@ const Inputcounter = () => {
                     value={symboll}
                     onChange={(event) => symbollinput(event)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
-                    placeholder="Symbols + - / * **"
+                    placeholder="Symbols + - / * **" readOnly
                 />
+                <div className="flex gap-3 justify-center my-2 flex-wrap">
+                    <button
+                        className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-300"
+                        onClick={() => btnone()}
+                    >+</button>
+                    <button
+                        className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-300"
+                        onClick={() => btntwo()}
+                    >-</button>
+                    <button
+                        className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-300"
+                        onClick={() => btnthree()}
+                    >/</button>
+                    <button
+                        className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-300"
+                        onClick={() => btnfour()}
+                    >*</button>
+                    <button
+                        className="bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-300"
+                        onClick={() => btnfive()}
+                    >**</button>
+                </div>
                 <input
                     type="number"
                     value={anothernumber}
