@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 const Inputcounter = () => {
 
+
+
     const [number, setnumber] = useState();
     const [anothernumber, setanothernumber] = useState();
     const [symboll, setsymboll] = useState();
@@ -60,6 +62,7 @@ const Inputcounter = () => {
 
         setresult(`${result}`);
         console.log(`${number} ${symboll} ${anothernumber} = ${result}`);
+        handlenewitem(number || '?', anothernumber || '?', symboll || '?', result || '?');
 
         if (num1 == 0) {
             setshow(false);
@@ -98,6 +101,20 @@ const Inputcounter = () => {
 
     }
 
+    const [mainitem, setmainitem] = useState([]);
+
+    // Fix: Store the result as well, and ensure the order of keys is correct.
+    // Also, ensure the symbol and '=' are in the right place when rendering.
+    const handlenewitem = (number, anothernumber, symboll, result) => {
+        console.log(`${number},${symboll},${anothernumber},${result}`);
+        const listitem = [
+            ...mainitem,
+            { num1: number, symboll: symboll, num2: anothernumber, result: result }
+        ];
+        setmainitem(listitem);
+        console.log(listitem);
+    }
+
     const btnone = () => {
         setsymboll('+');
     }
@@ -113,8 +130,17 @@ const Inputcounter = () => {
     const btnfive = () => {
         setsymboll('**');
     }
+    const DELbtn = (index) => {
 
+        if (confirm(`Are you sure to delete item number ${index}`)) {
+            console.log(index);
+            setmainitem(mainitem.filter((_, i) => i !== index));     
+        }
+        else{
+            console.log(`You have cancel the item number ${index} `)
+        }
 
+    }
 
     return (
         <>
@@ -188,14 +214,46 @@ const Inputcounter = () => {
 
                 </div>
                 {show &&
-                    <div className="w-full mt-1 flex justify-center">
-                        <div className="w-full max-w-xs bg-red-50 border border-red-200 rounded-xl shadow-md p-4 flex items-center justify-center transition-all duration-300 hover:shadow-lg">
-                            <p className="text-xl md:text-2xl font-medium text-red-600 text-center break-words">
-                                Result = {result}
-                            </p>
+                    <>
+                        <div className="w-full mt-1 flex justify-center">
+                            <div className="w-full max-w-xs bg-red-50 border border-red-200 rounded-xl shadow-md p-4 flex items-center justify-center transition-all duration-300 hover:shadow-lg">
+                                <p className="text-xl md:text-2xl font-medium text-red-600 text-center break-words">
+                                    Result = {result}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                        <div className="mt-1">
+                            <div className="border-2 border-red-300 rounded-xl bg-red-50 p-4">
+                                {mainitem.map((item, index) => (
+                                    <>
+                                     <div
+                                        key={index}
+                                        className={`border-b-2 border-red-200 last:border-b-0 py-2 px-3 flex items-center justify-between bg-white rounded-lg shadow-sm mb-2 transition-all duration-200 hover:bg-red-100 hover:scale-105 hover:shadow-md flex-wrap $`}
+                                         
+                                    >
+                                        <h3 className="text-lg font-medium text-red-400 transition-colors duration-200 hover:text-red-400 text-center flex-wrap">
+                                          <span className="text-red-500">{index}</span> <span className="text-red-400">:</span> <span className="text-red-500">{item.num1}</span> <span className="font-medium text-red-400">{item.symboll}</span> <span className="text-red-500">{item.num2}</span>  = <span className="text-red-500">{item.result}</span>
+                                        </h3>
+                                        <div>
+                                            <button
+                                                className="bg-red-200 text-red-600 font-semibold px-4 py-1 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-1.5 mb-1.5 mr-1 ml-4.5" onClick={() => DELbtn(index)}
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                   
+                                    </>
+                                   
+                                    
+                                ))}
+                            </div>
+                           
+                        </div>
+                    </>
+
                 }
+
 
 
             </div>
