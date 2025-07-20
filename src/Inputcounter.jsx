@@ -27,12 +27,12 @@ const Inputcounter = () => {
             setanothernumber('');
             setsymboll('');
             setshow(false);
-
+            setmainitem([]);
         }
         else {
             console.log('Cancel Confirmed')
         }
-
+       
 
 
     }
@@ -59,7 +59,7 @@ const Inputcounter = () => {
             result = "Invalid Output";
 
         };
-
+        
         setresult(`${result}`);
         console.log(`${number} ${symboll} ${anothernumber} = ${result}`);
         handlenewitem(number || '?', anothernumber || '?', symboll || '?', result || '?');
@@ -131,7 +131,7 @@ const Inputcounter = () => {
         setsymboll('**');
     }
     const DELbtn = (index) => {
-
+        
         if (confirm(`Are you sure to delete item number ${index}`)) {
             console.log(index);
             setmainitem(mainitem.filter((_, i) => i !== index));     
@@ -139,7 +139,7 @@ const Inputcounter = () => {
         else{
             console.log(`You have cancel the item number ${index} `)
         }
-
+       
     }
 
     return (
