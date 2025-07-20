@@ -156,10 +156,10 @@ const Inputcounter = () => {
                   Solution: Consider checking for empty string or using Number(number) === 0 if you want to check for zero.
                 */}
                 <input
-                    type="number"
+                    type="number" 
                     value={number}
                     onChange={(event) => input_1(event)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300 focus:rounded-xl"
                     placeholder="Enter a number"
                 />
                 <input
@@ -195,7 +195,7 @@ const Inputcounter = () => {
                     type="number"
                     value={anothernumber}
                     onChange={(event) => input_2(event)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300 focus:rounded-2xl"
                     placeholder="Enter another number"
                 />
                 <div className="flex gap-4 mt-2">
