@@ -4,9 +4,12 @@ import React, { useState } from "react";
 
 
 const Percentage = () => {
+
+ 
+
     const [obtainedvalue, setobtainedvalue] = useState('');
     const [totalvalue, settotalvalue] = useState('');
-    const [result, setresult] = useState('');   
+    const [result, setresult] = useState('');
     const [resultbox, setresultbox] = useState(false);
 
     const inpone = (event) => {
@@ -25,12 +28,26 @@ const Percentage = () => {
         const mainresult = Math.floor((value1 / value2 * 100));
         setresult(mainresult + '%');
         console.log(mainresult);
-        setresultbox(true)
+        setresultbox(true);
+        handlenewitem(obtainedvalue, totalvalue ,mainresult);
+
         if (!obtainedvalue || !totalvalue || (totalvalue) === 0) {
             setresult('Invalid input');
             return;
         }
     }
+
+   const [mainitem , setmainitem] = useState([])
+
+    const handlenewitem = (obtainedvalue, totalvalue , mainresult) => {
+        console.log(`${obtainedvalue} , ${totalvalue} , ${mainresult} is successfully working`);
+          const  newlist = [
+            ...mainitem,
+            {total:totalvalue , obtained:obtainedvalue , result : mainresult}
+          ];
+          setmainitem(newlist)
+    }
+
     const reset = () => {
 
         if (confirm('Are you sure to reset your data')) {
@@ -88,13 +105,59 @@ const Percentage = () => {
                     </div>
 
                     {resultbox &&
-                        <div className="w-full mt-1 flex justify-center">
-                            <div className="w-full max-w-xs bg-red-50 border border-red-200 rounded-xl shadow-md p-4 flex items-center justify-center transition-all duration-300 hover:shadow-lg">
-                                <p className="text-xl md:text-2xl font-medium text-red-600 text-center break-words">
-                                    Result = {result}
-                                </p>
+                        <>
+                            <div className="w-full mt-1 flex justify-center">
+                                <div className="w-full max-w-xs bg-red-50 border border-red-200 rounded-xl shadow-md p-4 flex items-center justify-center transition-all duration-300 hover:shadow-lg">
+                                    <p className="text-xl md:text-2xl font-medium text-red-600 text-center break-words">
+                                        Result = {result}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                            <div>
+                              <div className="grid grid-cols-1   mt-4">
+                                {mainitem.map((item, index) => (
+                                  <div
+                                    key={index}
+                                    className="bg-gradient-to-br from-pink-100 via-red-50 to-yellow-100 border-2 border-red-200 rounded-2xl shadow-lg p-5 flex flex-col items-center justify-center transition-all duration-300  mb-4 hover:scale-105 hover:shadow-2xl"
+                                  >
+                                    <div className="flex items-center gap-2 mb-2">
+                                      <span className="text-xs bg-red-400 text-white px-2 py-0.5 rounded-full shadow-sm font-bold tracking-widest">
+                                        #{index + 1}
+                                      </span>
+                                    </div>
+                                    <div className="flex flex-col items-center w-full">
+                                      <div className="flex items-center flex-wrap w-full justify-between border-2 border-red-400 pl-1.5 rounded-xl pr-1.5">
+                                        <span className="text-lg font-semibold text-pink-600">
+                                          Obtained:
+                                        </span>
+                                        <span className="text-lg font-bold text-red-500 break-words max-w-full">
+                                          {item.obtained}
+                                        </span>
+                                      </div>
+                                      <div className="flex items-center flex-wrap w-full justify-between mt-1 border-2 border-red-400 rounded-xl pl-1.5 pr-1.5">
+                                        <span className="text-lg font-semibold text-yellow-600">
+                                          Total:
+                                        </span>
+                                        <span className="text-lg font-bold text-orange-500 break-words max-w-full">
+                                          {item.total}
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div className="w-full border-1 rounded-full border-red-200 my-3"></div>
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-base font-medium text-gray-500">
+                                        Percentage:
+                                      </span>
+                                      <span className="text-2xl font-extrabold text-green-500 drop-shadow-lg">
+                                        {item.result}%
+                                      </span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                        </>
+
                     }
 
 
