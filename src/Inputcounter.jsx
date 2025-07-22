@@ -223,33 +223,45 @@ const Inputcounter = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="mt-1">
-                            <div className="border-2 border-red-300 rounded-xl bg-red-50 p-4">
-                                {mainitem.map((item, index) => (
-                                    <>
-                                     <div
-                                        key={index}
-                                        className={`border-b-2 border-red-200 last:border-b-0 py-2 px-3 flex items-center justify-between bg-white rounded-lg shadow-sm mb-3 transition-all duration-200 hover:bg-red-100 hover:scale-105 hover:shadow-md flex-wrap  `}
-                                         
-                                    >
-                                        <h3 className="text-lg font-medium text-red-400 transition-colors duration-200 hover:text-red-400 text-center flex-wrap">
-                                          <span className="text-red-400 border-2 border-red-200 rounded-full pl-1 pr-1">{index}</span> <span className="text-blue-400">:</span> <span className="text-red-500">{item.num1}</span> <span className="font-medium text-blue-400">{item.symboll}</span> <span className="text-red-500">{item.num2}</span> <span className="text-blue-400">=</span> <span className="text-red-500">{item.result}</span>
-                                        </h3>
-                                        <div>
-                                            <button
-                                                className="bg-red-200 text-red-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-2.5 mb-2.5 mr-1 ml-4.5" onClick={() => DELbtn(index)}
+                        <div className="mt-1 ">
+                            <div className={`border-2 h-auto w-auto  border-red-300 rounded-xl pt-0.5 pb-0.5 pr-1 bg-red-50 `}>
+                                <div className={`${mainitem.length <= 4 ? 'p-4' : 'p-4 h-96 overflow-auto scrollbar-thin scrollbar-thumb-red-200 scrollbar-track-red-50'}`}
+                                    style={{
+                                        scrollbarWidth: "thin",
+                                        scrollbarColor: "#fecaca #fff1f2",
+                                        borderRadius: "1rem",
+                                        /* Custom scrollbar styles for border-radius 50% */
+                                        scrollbarTrackColor: "#fff1f2",
+                                    }}
+                                >
+
+                                    {mainitem.map((item, index) => (
+                                        <>
+                                            <div
+                                                key={index}
+                                                className={`border-b-2 border-red-200 last:border-b-0 py-2 px-3 flex items-center justify-between bg-white rounded-lg shadow-sm mb-3 transition-all duration-200 hover:bg-red-100 hover:scale-105 hover:shadow-md flex-wrap  `}
+
                                             >
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                   
-                                    </>
-                                   
-                                    
-                                ))}
+                                                <h3 className="text-lg font-medium text-red-400 transition-colors duration-200 hover:text-red-400 text-center flex-wrap">
+                                                    <span className="text-red-400 border-2 border-red-200 rounded-full pl-1 pr-1">{index}</span> <span className="text-blue-400">:</span> <span className="text-red-500">{item.num1}</span> <span className="font-medium text-blue-400">{item.symboll}</span> <span className="text-red-500">{item.num2}</span> <span className="text-blue-400">=</span> <span className="text-red-500">{item.result}</span>
+                                                </h3>
+                                                <div>
+                                                    <button
+                                                        className="bg-red-200 text-red-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-2.5 mb-2.5 mr-1 ml-4.5" onClick={() => DELbtn(index)}
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </>
+
+
+                                    ))}
+                                </div>
                             </div>
-                           
+
+
                         </div>
                     </>
 
