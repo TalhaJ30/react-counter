@@ -225,7 +225,7 @@ const Inputcounter = () => {
                         </div>
                         <div className="mt-1 ">
                             <div className={`border-2 h-auto w-auto  border-red-300 rounded-xl pt-0.5 pb-0.5 pr-1 bg-red-50 `}>
-                                <div className={`${mainitem.length <= 4 ? 'p-4' : 'p-4 h-96 overflow-auto scrollbar-thin scrollbar-thumb-red-200 scrollbar-track-red-50'}`}
+                                <div className={`${mainitem.length <= 3 ? 'p-4' : 'p-4 h-96 overflow-auto scrollbar-thin scrollbar-thumb-red-200 scrollbar-track-red-50'}`}
                                     style={{
                                         scrollbarWidth: "thin",
                                         scrollbarColor: "#fecaca #fff1f2",
