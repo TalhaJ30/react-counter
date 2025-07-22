@@ -24,7 +24,7 @@ function App() {
      
     
 
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 border border-red-200 transition-transform duration-300 hover:scale-[1.02]">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 border mt-4 mb-4 border-red-200 transition-transform duration-300 hover:scale-[1.02]">
       <div className="flex justify-center gap-4 mb-5 flex-wrap">
           <button
           onClick={() => reactC()}
@@ -40,8 +40,8 @@ function App() {
           </button>
         </div>
         <div>
-          {button1 &&  <Inputcounter></Inputcounter>}
-          {button2 &&    <Percentage></Percentage>}
+          {button1 && <div><Inputcounter></Inputcounter></div> }
+          {button2 &&   <div><Percentage></Percentage></div> }
         
         </div>
 

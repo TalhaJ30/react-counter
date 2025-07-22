@@ -229,7 +229,7 @@ const Inputcounter = () => {
                                     <>
                                      <div
                                         key={index}
-                                        className={`border-b-2 border-red-200 last:border-b-0 py-2 px-3 flex items-center justify-between bg-white rounded-lg shadow-sm mb-2 transition-all duration-200 hover:bg-red-100 hover:scale-105 hover:shadow-md flex-wrap `}
+                                        className={`border-b-2 border-red-200 last:border-b-0 py-2 px-3 flex items-center justify-between bg-white rounded-lg shadow-sm mb-3 transition-all duration-200 hover:bg-red-100 hover:scale-105 hover:shadow-md flex-wrap  `}
                                          
                                     >
                                         <h3 className="text-lg font-medium text-red-400 transition-colors duration-200 hover:text-red-400 text-center flex-wrap">

@@ -32,7 +32,7 @@ const Percentage = () => {
         handlenewitem(obtainedvalue, totalvalue ,mainresult);
 
         if (!obtainedvalue || !totalvalue || (totalvalue) === 0) {
-            setresult('Invalid input');
+            setresult('Invalid Output');
             return;
         }
     }
@@ -56,6 +56,8 @@ const Percentage = () => {
             setobtainedvalue('');
             setresultbox(false);
             console.log('successfully reset');
+            setmainitem([]);
+
         }
         else {
             console.log('Cancel reset')
@@ -77,7 +79,7 @@ const Percentage = () => {
                         value={obtainedvalue}
                         type="number"
                         onChange={(event) => inpone(event)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
+                        className="w-full px-4 py-3 border border-red-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 focus:rounded-xl hover:transition-all placeholder:text-red-300"
                         placeholder="Enter the obtained"
                     />
 
@@ -85,7 +87,7 @@ const Percentage = () => {
                         value={totalvalue}
                         type="number"
                         onChange={(event) => inptwo(event)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300 focus:rounded-xl hover:transition-all"
                         placeholder="Enter the total value"
                     />
                     <div className="flex gap-4 mt-2">
@@ -118,27 +120,27 @@ const Percentage = () => {
                                 {mainitem.map((item, index) => (
                                   <div
                                     key={index}
-                                    className="bg-gradient-to-br from-pink-100 via-red-50 to-yellow-100 border-2 border-red-200 rounded-2xl shadow-lg p-5 flex flex-col items-center justify-center transition-all duration-300  mb-4 hover:scale-105 hover:shadow-2xl"
+                                    className="bg-gradient-to-br from-pink-100 via-red-50 to-yellow-100 border-2 border-red-200 rounded-2xl shadow-lg pl-4 pr-4 pt-3.5 pb-3.5 flex flex-col items-center justify-center transition-all duration-300  mb-4 hover:scale-105 hover:shadow-2xl"
                                   >
                                     <div className="flex items-center gap-2 mb-2">
-                                      <span className="text-xs bg-red-400 text-white px-2 py-0.5 rounded-full shadow-sm font-bold tracking-widest">
+                                      <span className="text-l md:text-xl bg-red-400 text-white px-2 py-0.5 rounded-full shadow-sm font-bold tracking-widest">
                                         #{index + 1}
                                       </span>
                                     </div>
                                     <div className="flex flex-col items-center w-full">
-                                      <div className="flex items-center flex-wrap w-full justify-between border-2 border-red-400 pl-1.5 rounded-xl pr-1.5">
-                                        <span className="text-lg font-semibold text-pink-600">
+                                      <div className="flex items-center flex-wrap w-full justify-between border-2 border-red-300 pl-1.5 rounded-xl pr-1.5 transition-all duration-200 hover:bg-pink-100 hover:border-pink-200 hover:scale-105 hover:shadow-md mt-1">
+                                        <span className="text-xl font-semibold text-pink-600 pl-1 pt-1 pb-1">
                                           Obtained:
                                         </span>
-                                        <span className="text-lg font-bold text-red-500 break-words max-w-full">
+                                        <span className="text-xl font-bold text-pink-500 break-words max-w-full pr-1 pt-1 pb-1">
                                           {item.obtained}
                                         </span>
                                       </div>
-                                      <div className="flex items-center flex-wrap w-full justify-between mt-1 border-2 border-red-400 rounded-xl pl-1.5 pr-1.5">
-                                        <span className="text-lg font-semibold text-yellow-600">
+                                      <div className="flex items-center flex-wrap w-full justify-between mt-2 border-2 border-red-300 rounded-xl pl-1.5 pr-1.5 transition-all duration-200 hover:bg-orange-100 hover:border-orange-200 hover:scale-105 hover:shadow-md">
+                                        <span className="text-xl font-semibold text-orange-500 pl-1 pt-1 pb-1">
                                           Total:
                                         </span>
-                                        <span className="text-lg font-bold text-orange-500 break-words max-w-full">
+                                        <span className="text-xl font-bold text-orange-500 break-words max-w-full pr-1 pt-1 pb-1">
                                           {item.total}
                                         </span>
                                       </div>
