@@ -32,7 +32,7 @@ const Inputcounter = () => {
         else {
             console.log('Cancel Confirmed')
         }
-       
+
 
 
     }
@@ -59,7 +59,7 @@ const Inputcounter = () => {
             result = "Invalid Output";
 
         };
-        
+
         setresult(`${result}`);
         console.log(`${number} ${symboll} ${anothernumber} = ${result}`);
         handlenewitem(number || '?', anothernumber || '?', symboll || '?', result || '?');
@@ -131,15 +131,15 @@ const Inputcounter = () => {
         setsymboll('**');
     }
     const DELbtn = (index) => {
-        
+
         if (confirm(`Are you sure to delete item number ${index}`)) {
             console.log(index);
-            setmainitem(mainitem.filter((_, i) => i !== index));     
+            setmainitem(mainitem.filter((_, i) => i !== index));
         }
-        else{
+        else {
             console.log(`You have cancel the item number ${index} `)
         }
-       
+
     }
 
     return (
@@ -156,7 +156,7 @@ const Inputcounter = () => {
                   Solution: Consider checking for empty string or using Number(number) === 0 if you want to check for zero.
                 */}
                 <input
-                    type="number" 
+                    type="number"
                     value={number}
                     onChange={(event) => input_1(event)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-200 ease-in-out hover:border-red-400 hover:shadow-lg text-lg bg-red-50 placeholder:text-red-300 focus:rounded-xl"

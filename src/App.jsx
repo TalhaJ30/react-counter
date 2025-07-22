@@ -40,8 +40,8 @@ function App() {
           </button>
         </div>
         <div>
-          {button1 && <div><Inputcounter></Inputcounter></div> }
-          {button2 &&   <div><Percentage></Percentage></div> }
+          {button1 && <div><Inputcounter></Inputcounter></div>}
+          {button2 &&   <div><Percentage></Percentage></div>}
         
         </div>
 
