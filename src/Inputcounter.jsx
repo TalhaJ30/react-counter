@@ -28,6 +28,8 @@ const Inputcounter = () => {
             setsymboll('');
             setshow(false);
             setmainitem([]);
+            setInitValue(0);
+
         }
         else {
             console.log('Cancel Confirmed')
