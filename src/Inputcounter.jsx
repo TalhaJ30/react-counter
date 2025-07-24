@@ -99,6 +99,13 @@ const Inputcounter = () => {
 
         }
 
+        // setInitValue(prev => {
+        //     const newValue = prev + 1;
+        //     console.log(newValue);
+        //     return newValue;
+        // });
+        setInitValue(Infinite => Infinite + 1);
+        
     }
 
     const [mainitem, setmainitem] = useState([]);
@@ -142,13 +149,31 @@ const Inputcounter = () => {
 
     }
 
+    // Add state for the counter used by the hello button
+    const [initValue, setInitValue] = useState(0);
+    const [details, setdetails] = useState(false);
+
+    // Function to increment and log the counter
+    const init = () => {
+
+        if (details) {
+            setdetails(false);
+            console.log('if')
+        } else {
+            setdetails(true);
+            console.log('else')
+        }
+        // setInitValue(infinite => infinite + 1)
+
+    };
+
     return (
         <>
 
             <h1 className="text-3xl md:text-5xl text-red-500 font-normal text-center mb-8 tracking-tight drop-shadow-lg select-none transition-colors duration-300 hover:text-red-600">
-                React Input Counter
+                React Input Counter App
             </h1>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 pl-0 pr-0">
                 {/* 
                   Issue: The input type is "number", which means if the field is empty, its value will be an empty string (""), not 0. 
                   This can cause issues in validation logic if you check for num1 == 0, because an empty string is falsy but not equal to 0.
@@ -202,13 +227,13 @@ const Inputcounter = () => {
                 <div className="flex gap-4 mt-2">
                     <button
 
-                        className="flex-1 bg-red-400 text-white font-semibold py-2 rounded-lg shadow-md transition-all duration-200 hover:bg-red-500 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-300"
+                        className="flex-1 bg-red-400 text-white font-semibold py-2 rounded-lg shadow-md transition-all duration-200 hover:bg-red-500 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-300 focus:rounded-full"
                         onClick={() => btn()}          >
                         Show Sum
                     </button>
                     <button
                         onClick={(event) => resetbtn(event)}
-                        className="flex-1 bg-gray-200 text-gray-700 font-semibold py-2 rounded-lg shadow-md transition-all duration-200 hover:bg-gray-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                        className="flex-1 bg-gray-200 text-gray-700 font-semibold py-2 rounded-lg shadow-md transition-all duration-200 hover:bg-gray-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:rounded-full">
                         Reset
                     </button>
 
@@ -223,6 +248,50 @@ const Inputcounter = () => {
                                 </p>
                             </div>
                         </div>
+                        <div className="">
+                            <div className="grid justify-center items-center md:flex md:justify-between md:items-center mt-1.5 flex-wrap">
+                                <h1 className="text-3xl text-red-600 font-medium text-center">Stored calculation</h1>
+                                <button className="border-2 border-red-600 text-red-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all  duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-2.5 mb-2.5 mr-1 ml-4.5" onClick={init}>Details</button>
+                            </div>
+                            {details &&
+                                <>
+                                    <div className=" grid justify-center items-center pt-3">
+                                        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 p-3 bg-gradient-to-r from-red-50 via-white to-red-100 rounded-xl shadow-md border-2 border-red-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1">
+                                            <div className="flex items-center gap-2">
+                                                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500 text-xl font-bold shadow">
+                                                    <span className="group relative inline-block">
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="h-5 w-5 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke="currentColor"
+                                                        >
+                                                            <path
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth={2}
+                                                                d="M17 16v2a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-2M12 12v6m-6-6V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5"
+                                                            />
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                                <span className="text-lg md:text-xl font-semibold text-red-600">Added items</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-base md:text-lg text-gray-500">Total:</span>
+                                                <span className="text-xl md:text-2xl font-bold text-red-700 bg-white px-4 py-2 hover:rounded-lg border border-red-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-red-700 hover:scale-105 rounded-2xl hover:text-white">{initValue}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </>
+
+                            }
+
+
+                        </div>
+
                         <div className="mt-1 ">
                             <div className={`border-2 h-auto w-auto  border-red-300 rounded-xl pt-0.5 pb-0.5 pr-1 bg-red-50 `}>
                                 <div className={`${mainitem.length <= 3 ? 'p-4' : 'p-4 h-96 overflow-auto scrollbar-thin scrollbar-thumb-red-200 scrollbar-track-red-50'}`}

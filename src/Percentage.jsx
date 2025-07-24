@@ -72,7 +72,7 @@ const Percentage = () => {
         <>
             <div>
                 <h1 className="text-3xl md:text-5xl text-red-500 font-normal text-center mb-8 tracking-tight drop-shadow-lg select-none transition-colors duration-300 hover:text-red-600">
-                    React Percentage Counter
+                    React Percentage Counter App
                 </h1>
                 <div className="flex flex-col gap-6">
                     <input

@@ -20,21 +20,21 @@ function App() {
   }
  
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 grid items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 grid items-center justify-center p-4 border-2">
      
     
 
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 border mt-4 mb-4 border-red-200 transition-transform duration-300 hover:scale-[1.02]">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 border mt-4 mb-4 border-red-200 transition-transform duration-300 hover:scale-[1.02] ">
       <div className="flex justify-center gap-4 mb-5 flex-wrap">
           <button
           onClick={() => reactC()}
-            className="px-4 py-2 rounded-lg font-semibold transition-all duration-200 border-2 focus:outline-none shadow-sm text-sm sm:text-base bg-white text-red-500 border-red-200 hover:bg-red-500 hover:text-white hover:scale-105"
+            className="px-4 py-2 rounded-lg font-semibold transition-all duration-200 border-2 focus:outline-none shadow-sm text-sm sm:text-base bg-white text-red-500 border-red-200 hover:bg-red-500 hover:text-white hover:scale-105 focus:rounded-2xl"
           >   
             Counter
           </button>
           <button
              onClick={() => perbtn()}
-            className="px-4 py-2 rounded-lg font-semibold transition-all duration-200 border-2 focus:outline-none shadow-sm text-sm sm:text-base bg-white text-red-500 border-red-200 hover:bg-red-500 hover:text-white hover:scale-105"
+            className="px-4 py-2 rounded-lg font-semibold transition-all duration-200 border-2 focus:outline-none shadow-sm text-sm sm:text-base bg-white text-red-500 border-red-200 hover:bg-red-500 hover:text-white hover:scale-105 focus:rounded-2xl"
           >
             Percentage
           </button>
