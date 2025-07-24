@@ -253,7 +253,7 @@ const Inputcounter = () => {
                         <div className="">
                             <div className="grid justify-center items-center md:flex md:justify-between md:items-center mt-1.5 flex-wrap">
                                 <h1 className="text-3xl text-red-600 font-medium text-center">Stored calculation</h1>
-                                <button className="border-2 border-red-600 text-red-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all  duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-2.5 mb-2.5 mr-1 ml-4.5" onClick={init}>Details</button>
+                                <button className="border-2 border-red-600 text-red-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all  duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-2.5 mb-2.5 mr-4.5 ml-4.5 md:mr-1 md:ml-1" onClick={init}>Details</button>
                             </div>
                             {details &&
                                 <>
