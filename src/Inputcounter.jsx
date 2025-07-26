@@ -29,6 +29,7 @@ const Inputcounter = () => {
             setshow(false);
             setmainitem([]);
             setInitValue(0);
+            setdeletevalue(0);
 
         }
         else {
@@ -144,6 +145,9 @@ const Inputcounter = () => {
         if (confirm(`Are you sure to delete item number ${index}`)) {
             console.log(index);
             setmainitem(mainitem.filter((_, i) => i !== index));
+            // setInitValue(Infinite => Infinite + 1);
+            setdeletevalue(deletevalue => deletevalue + 1);
+            console.log(setInitValue)
         }
         else {
             console.log(`You have cancel the item number ${index} `)
@@ -153,6 +157,7 @@ const Inputcounter = () => {
 
     // Add state for the counter used by the hello button
     const [initValue, setInitValue] = useState(0);
+    const [deletevalue , setdeletevalue] = useState(0);
     const [details, setdetails] = useState(false);
 
     // Function to increment and log the counter
@@ -165,7 +170,7 @@ const Inputcounter = () => {
             setdetails(true);
             console.log('else')
         }
-        // setInitValue(infinite => infinite + 1)
+        
 
     };
 
@@ -258,7 +263,7 @@ const Inputcounter = () => {
                             {details &&
                                 <>
                                     <div className=" grid justify-center items-center pt-3">
-                                        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 p-3 bg-gradient-to-r from-red-50 via-white to-red-100 rounded-xl shadow-md border-2 border-red-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1">
+                                        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 p-3 bg-gradient-to-r from-red-50 via-white to-red-100 rounded-xl shadow-md  border-red-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1 border-2 mt-3">
                                             <div className="flex items-center gap-2">
                                                 <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500 text-xl font-bold shadow">
                                                     <span className="group relative inline-block">
@@ -283,6 +288,37 @@ const Inputcounter = () => {
                                             <div className="flex items-center gap-2">
                                                 <span className="text-base md:text-lg text-gray-500">Total:</span>
                                                 <span className="text-xl md:text-2xl font-bold text-red-700 bg-white px-4 py-2 hover:rounded-lg border border-red-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-red-700 hover:scale-105 rounded-2xl hover:text-white">{initValue}</span>
+                                                
+                                            </div>
+                                        </div>
+                                        <div className="w-full flex flex-col md:flex-row items-center mt-3 justify-between gap-4 p-3 bg-gradient-to-r from-red-50 via-white to-red-100 rounded-xl shadow-md  border-red-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1 border-2">
+                                            <div className="flex items-center gap-2">
+                                                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500 text-xl font-bold shadow">
+                                                    <span className="group relative inline-block">
+                                                        {/* Delete (Trash) Icon */}
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="h-5 w-5 text-red-500 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke="currentColor"
+                                                        >
+                                                            <path
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth={2}
+                                                                d="M19 7l-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"
+                                                            />
+                                                        </svg>
+                                                    
+                                                    </span>
+                                                </span>
+                                                <span className="text-lg md:text-xl font-semibold text-red-600">Deleted item</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-base md:text-lg text-gray-500">Total:</span>
+                                                <span className="text-xl md:text-2xl font-bold text-red-700 bg-white px-4 py-2 hover:rounded-lg border border-red-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-red-700 hover:scale-105 rounded-2xl hover:text-white">{deletevalue}</span>
+                                                
                                             </div>
                                         </div>
                                     </div>
