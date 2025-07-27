@@ -151,7 +151,7 @@ const Inputcounter = () => {
             // setInitValue(Infinite => Infinite + 1);
             setdeletevalue(deletevalue => deletevalue + 1);
            
-            setInitValue(Infinite => Infinite - 1);
+            
              
         }
         else {
