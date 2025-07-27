@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Inputcounter = () => {
 
@@ -64,12 +64,12 @@ const Inputcounter = () => {
         };
 
         setresult(`${result}`);
-        console.log(`${number} ${symboll} ${anothernumber} = ${result}`);
+       
         handlenewitem(number || '?', anothernumber || '?', symboll || '?', result || '?');
 
         if (num1 == 0) {
             setshow(false);
-            console.log('num1 is empty');
+
             alert('1:First Input is Empty');
             setanothernumber('');
             setsymboll('');
@@ -80,7 +80,7 @@ const Inputcounter = () => {
         }
         if (symboll == 0) {
             setshow(false);
-            console.log('symboll input is empty');
+         
             alert('2:Symboll Input is Empty');
             setanothernumber('');
             setnumber('');
@@ -91,14 +91,14 @@ const Inputcounter = () => {
         }
         if (num2 == 0) {
             setshow(false);
-            console.log('num2 input is empty');
+            
             alert('3:Third Input is Empty');
             setnumber('');
             setsymboll('');
 
         }
         else {
-            console.log('num2 no');
+          
 
         }
 
@@ -108,6 +108,9 @@ const Inputcounter = () => {
         //     return newValue;
         // });
         setInitValue(Infinite => Infinite + 1);
+     
+      
+        
         
     }
 
@@ -122,7 +125,7 @@ const Inputcounter = () => {
             { num1: number, symboll: symboll, num2: anothernumber, result: result }
         ];
         setmainitem(listitem);
-        console.log(listitem);
+       
     }
 
     const btnone = () => {
@@ -143,11 +146,13 @@ const Inputcounter = () => {
     const DELbtn = (index) => {
 
         if (confirm(`Are you sure to delete item number ${index}`)) {
-            console.log(index);
+           
             setmainitem(mainitem.filter((_, i) => i !== index));
             // setInitValue(Infinite => Infinite + 1);
             setdeletevalue(deletevalue => deletevalue + 1);
-            console.log(setInitValue)
+           
+            setInitValue(Infinite => Infinite - 1);
+             
         }
         else {
             console.log(`You have cancel the item number ${index} `)
@@ -158,17 +163,18 @@ const Inputcounter = () => {
     // Add state for the counter used by the hello button
     const [initValue, setInitValue] = useState(0);
     const [deletevalue , setdeletevalue] = useState(0);
-    const [details, setdetails] = useState(false);
+    const [details, setdetails] = useState(false); 
+
 
     // Function to increment and log the counter
     const init = () => {
 
         if (details) {
             setdetails(false);
-            console.log('if')
+           
         } else {
             setdetails(true);
-            console.log('else')
+            
         }
         
 
@@ -350,7 +356,7 @@ const Inputcounter = () => {
 
                                             >
                                                 <h3 className="text-lg font-medium text-red-400 transition-colors duration-200 hover:text-red-400 text-center flex-wrap">
-                                                    <span className="text-red-400 border-2 border-red-200 rounded-full pl-1 pr-1">{index}</span> <span className="text-blue-400">:</span> <span className="text-red-500">{item.num1}</span> <span className="font-medium text-blue-400">{item.symboll}</span> <span className="text-red-500">{item.num2}</span> <span className="text-blue-400">=</span> <span className="text-red-500">{item.result}</span>
+                                                    <span className="text-red-400 border-2 border-red-200 rounded-full pl-1 pr-1">{index + 1}</span> <span className="text-blue-400">:</span> <span className="text-red-500">{item.num1}</span> <span className="font-medium text-blue-400">{item.symboll}</span> <span className="text-red-500">{item.num2}</span> <span className="text-blue-400">=</span> <span className="text-red-500">{item.result}</span>
                                                 </h3>
                                                 <div>
                                                     <button
