@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useEffect, useState} from "react";
+import Message from "./message";
 const Inputcounter = () => {
 
 
@@ -145,7 +145,7 @@ const Inputcounter = () => {
     }
     const DELbtn = (index) => {
 
-        if (confirm(`Are you sure to delete item number ${index}`)) {
+        if (confirm(`Are you sure to delete item number ${index + 1}`)) {
            
             setmainitem(mainitem.filter((_, i) => i !== index));
             // setInitValue(Infinite => Infinite + 1);
@@ -164,7 +164,18 @@ const Inputcounter = () => {
     const [initValue, setInitValue] = useState(0);
     const [deletevalue , setdeletevalue] = useState(0);
     const [details, setdetails] = useState(false); 
-
+    useEffect(() => {
+        // Logic: Check if all added items have been deleted (i.e., mainitem is empty and initValue equals deletevalue)
+        if (initValue === deletevalue) {
+            
+           setInitValue(0);
+           setdeletevalue(0);
+            // You can add any additional logic here, e.g., show a message or reset counters if needed
+        }
+        else{
+       
+        }
+    })
 
     // Function to increment and log the counter
     const init = () => {
@@ -347,7 +358,8 @@ const Inputcounter = () => {
                                         scrollbarTrackColor: "#fff1f2",
                                     }}
                                 >
-
+                                    {mainitem.length === 0 && <Message></Message>}
+                                
                                     {mainitem.map((item, index) => (
                                         <>
                                             <div

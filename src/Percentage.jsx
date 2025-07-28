@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import Message from "./message";
 
 
 
@@ -22,7 +22,7 @@ const Percentage = () => {
   }
 
   const btn = () => {
-
+    setadditems(added => added + 1 )
     const value1 = Number(obtainedvalue);
     const value2 = Number(totalvalue);
     const mainresult = Math.floor((value1 / value2 * 100));
@@ -69,13 +69,46 @@ const Percentage = () => {
   }
 
   const carddeletebtn = (index) => {
+    if (confirm(`Are you sure to delete card number ${index + 1}`)) {
+      console.log(`'Card deleted' , ${index}`);
+      setmainitem(mainitem.filter((_, i) => i !== index));
+      
+      setremoveitems(removed => removed + 1 )
+    }
+    else {
+      console.log(`'Card cancel' , ${index}`);
+    }
 
-      console.log(`'carddeletebtn' , ${index}`);
-      setmainitem(mainitem.filter((_, i) => i !== index));   
-    
-   
+
 
   }
+
+  const [details, setdetails] = useState(false);
+  const [additems , setadditems] = useState(0);
+  const [removeitems , setremoveitems] = useState(0);
+  useEffect(() => {
+    if (additems === removeitems) {
+            
+      setadditems(0);
+      setremoveitems(0);
+       // You can add any additional logic here, e.g., show a message or reset counters if needed
+   }
+   else{
+  
+   }
+  })
+  const detailbtn = () => {
+    console.log('hello bhai i am working')
+    
+    
+    if (details) {
+      setdetails(false)
+    } 
+    else{
+      setdetails(true)
+    }
+  }
+
 
   return (
     <>
@@ -125,6 +158,83 @@ const Percentage = () => {
                 </div>
               </div>
               <div>
+                <div className="">
+                  <div className="grid justify-center items-center md:flex md:justify-between md:items-center mt-1.5 flex-wrap">
+                    <h1 className="text-3xl text-red-600 font-medium text-center">Stored calculation</h1>
+                    <button className="border-2 border-red-600 text-red-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all  duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-2.5 mb-2.5 mr-4.5 ml-4.5 md:mr-1 md:ml-1" onClick={() => detailbtn()}>Details</button>
+                  </div>
+                  {details &&
+                    <>
+                      <div className=" grid justify-center items-center pt-3">
+                        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 p-3 bg-gradient-to-r from-red-50 via-white to-red-100 rounded-xl shadow-md  border-red-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1 border-2 mt-3">
+                          <div className="flex items-center gap-2">
+                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500 text-xl font-bold shadow">
+                              <span className="group relative inline-block">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="h-5 w-5 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M17 16v2a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-2M12 12v6m-6-6V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                            <span className="text-lg md:text-xl font-semibold text-red-600">Added items</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-base md:text-lg text-gray-500">Total:</span>
+                            <span className="text-xl md:text-2xl font-bold text-red-700 bg-white px-4 py-2 hover:rounded-lg border border-red-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-red-700 hover:scale-105 rounded-2xl hover:text-white">{additems}</span>
+
+                          </div>
+                        </div>
+                        <div className="w-full flex flex-col md:flex-row items-center mt-3 justify-between gap-4 p-3 bg-gradient-to-r from-red-50 via-white to-red-100 rounded-xl shadow-md  border-red-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1 border-2">
+                          <div className="flex items-center gap-2">
+                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500 text-xl font-bold shadow">
+                              <span className="group relative inline-block">
+                                {/* Delete (Trash) Icon */}
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="h-5 w-5 text-red-500 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M19 7l-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"
+                                  />
+                                </svg>
+
+                              </span>
+                            </span>
+                            <span className="text-lg md:text-xl font-semibold text-red-600">Deleted item</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-base md:text-lg text-gray-500">Total:</span>
+                            <span className="text-xl md:text-2xl font-bold text-red-700 bg-white px-4 py-2 hover:rounded-lg border border-red-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-red-700 hover:scale-105 rounded-2xl hover:text-white">{removeitems}</span>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </>
+                  }
+
+
+
+
+
+                </div>
+                {mainitem.length === 0 && <Message></Message>}
                 <div className="grid grid-cols-1   mt-4">
                   {mainitem.map((item, index) => (
                     <div key={index}>
@@ -137,7 +247,7 @@ const Percentage = () => {
                         </button>
                       </div>
                       <div
-                        
+
                         className="bg-gradient-to-br from-pink-100 via-red-50 to-yellow-100 border-2 border-red-200 rounded-2xl shadow-lg pl-4 pr-4 pt-3.5 pb-3.5 flex flex-col items-center justify-center transition-all duration-300  mb-4 hover:scale-105 hover:shadow-2xl mr-5 mt-4 ml-5"
                       >
                         <div className="flex items-center gap-2 mb-2">
