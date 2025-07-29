@@ -36,9 +36,6 @@ const Inputcounter = () => {
         else {
             console.log('Cancel Confirmed')
         }
-
-
-
     }
 
     const btn = () => {
@@ -58,56 +55,26 @@ const Inputcounter = () => {
         } else if (symboll === "**") {
             result = num1 ** num2
         }
-
         else {
             result = "Invalid Output";
-
         };
 
         setresult(`${result}`);
        
         handlenewitem(number || '?', anothernumber || '?', symboll || '?', result || '?');
 
-        if (num1 == 0) {
-            setshow(false);
       
         if (!number  || !anothernumber || !symboll  === 0) {
         
             setresult('hello bhai');
             return;
             
-            alert('2:Symboll Input is Empty');
-            setanothernumber('');
-            setnumber('');
-        }
-        else {
-            console.log('symboll no')
-
-        }
-        if (num2 == 0) {
-            setshow(false);
-            
-            alert('3:Third Input is Empty');
-            setresult('hello bhai');
-            return;
-            
           }
-        // setInitValue(prev => {
-        //     const newValue = prev + 1;
-        //     console.log(newValue);
-        //     return newValue;
-        // });
         setInitValue(Infinite => Infinite + 1);
-     
-      
-        
-        
     }
 
     const [mainitem, setmainitem] = useState([]);
 
-    // Fix: Store the result as well, and ensure the order of keys is correct.
-    // Also, ensure the symbol and '=' are in the right place when rendering.
     const handlenewitem = (number, anothernumber, symboll, result) => {
         console.log(`${number},${symboll},${anothernumber},${result}`);
         const listitem = [
@@ -115,7 +82,6 @@ const Inputcounter = () => {
             { num1: number, symboll: symboll, num2: anothernumber, result: result }
         ];
         setmainitem(listitem);
-       
     }
 
     const btnone = () => {
@@ -138,48 +104,33 @@ const Inputcounter = () => {
         if (confirm(`Are you sure to delete item number ${index + 1}`)) {
            
             setmainitem(mainitem.filter((_, i) => i !== index));
-            // setInitValue(Infinite => Infinite + 1);
             setdeletevalue(deletevalue => deletevalue + 1);
-           
-            
-             
         }
         else {
             console.log(`You have cancel the item number ${index} `)
         }
-
     }
 
-    // Add state for the counter used by the hello button
     const [initValue, setInitValue] = useState(0);
     const [deletevalue , setdeletevalue] = useState(0);
     const [details, setdetails] = useState(false); 
     
     useEffect(() => {
-        // Logic: Check if all added items have been deleted (i.e., mainitem is empty and initValue equals deletevalue)
         if (initValue === deletevalue) {
-            
            setInitValue(0);
            setdeletevalue(0);
-            // You can add any additional logic here, e.g., show a message or reset counters if needed
         }
         else{
        
         }
     })
 
-    // Function to increment and log the counter
     const init = () => {
-
         if (details) {
             setdetails(false);
-           
         } else {
             setdetails(true);
-            
         }
-        
-
     };
 
     return (
@@ -352,11 +303,9 @@ const Inputcounter = () => {
                                     {mainitem.length === 0 && <Message></Message>}
                                 
                                     {mainitem.map((item, index) => (
-                                        <>
                                         <div
                                             key={index}
                                             className={`border-b-2 border-red-200 last:border-b-0 py-2 px-3 flex items-center justify-between bg-white rounded-lg shadow-sm mb-3 transition-all duration-200 hover:bg-red-100 hover:scale-105 hover:shadow-md flex-wrap  `}
-
                                         >
                                             <h3 className="text-lg font-medium text-red-400 transition-colors duration-200 hover:text-red-400 text-center flex-wrap">
                                                 <span className="text-red-400 border-2 border-red-200 rounded-full pl-1 pr-1">{index + 1}</span> <span className="text-blue-400">:</span> <span className="text-red-500">{item.num1}</span> <span className="font-medium text-blue-400">{item.symboll}</span> <span className="text-red-500">{item.num2}</span> <span className="text-blue-400">=</span> <span className="text-red-500">{item.result}</span>
@@ -369,10 +318,6 @@ const Inputcounter = () => {
                                                 </button>
                                             </div>
                                         </div>
-
-                                        </>
-
-
                                     ))}
                                 </div>
                             </div>
