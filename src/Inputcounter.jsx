@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Message from "./Message";
 const Inputcounter = () => {
 
@@ -8,7 +8,7 @@ const Inputcounter = () => {
     const [symboll, setsymboll] = useState('');
     const [result, setresult] = useState('');
     const [show, setshow] = useState(false);
-    
+
     const input_1 = (event) => {
         setnumber(event.target.value)
     }
@@ -60,16 +60,16 @@ const Inputcounter = () => {
         };
 
         setresult(`${result}`);
-       
+
         handlenewitem(number || '?', anothernumber || '?', symboll || '?', result || '?');
 
-      
-        if (!number  || !anothernumber || !symboll  === 0) {
-        
+
+        if (!number || !anothernumber || !symboll === 0) {
+            setInitValue(Infinite => Infinite + 1);
             setresult('hello bhai');
             return;
-            
-          }
+
+        }
         setInitValue(Infinite => Infinite + 1);
     }
 
@@ -102,7 +102,7 @@ const Inputcounter = () => {
     const DELbtn = (index) => {
 
         if (confirm(`Are you sure to delete item number ${index + 1}`)) {
-           
+
             setmainitem(mainitem.filter((_, i) => i !== index));
             setdeletevalue(deletevalue => deletevalue + 1);
         }
@@ -112,19 +112,19 @@ const Inputcounter = () => {
     }
 
     const [initValue, setInitValue] = useState(0);
-    const [deletevalue , setdeletevalue] = useState(0);
-    const [details, setdetails] = useState(false); 
-    
+    const [deletevalue, setdeletevalue] = useState(0);
+    const [details, setdetails] = useState(false);
+
 
     useEffect(() => {
         setTimeout(() => {
-        if (initValue === deletevalue) {
-           setInitValue(0);
-           setdeletevalue(0);
-        }
-        else{
-       
-        }
+            if (initValue === deletevalue) {
+                setInitValue(0);
+                setdeletevalue(0);
+            }
+            else {
+
+            }
         }, 500);
 
 
@@ -256,7 +256,7 @@ const Inputcounter = () => {
                                             <div className="flex items-center gap-2">
                                                 <span className="text-base md:text-lg text-gray-500">Total:</span>
                                                 <span className="text-xl md:text-2xl font-bold text-red-700 bg-white px-4 py-2 hover:rounded-lg border border-red-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-red-700 hover:scale-105 rounded-2xl hover:text-white">{initValue}</span>
-                                                
+
                                             </div>
                                         </div>
                                         <div className="w-full flex flex-col md:flex-row items-center mt-3 justify-between gap-4 p-3 bg-gradient-to-r from-red-50 via-white to-red-100 rounded-xl shadow-md  border-red-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1 border-2">
@@ -278,7 +278,7 @@ const Inputcounter = () => {
                                                                 d="M19 7l-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"
                                                             />
                                                         </svg>
-                                                    
+
                                                     </span>
                                                 </span>
                                                 <span className="text-lg md:text-xl font-semibold text-red-600">Deleted item</span>
@@ -286,7 +286,7 @@ const Inputcounter = () => {
                                             <div className="flex items-center gap-2">
                                                 <span className="text-base md:text-lg text-gray-500">Total:</span>
                                                 <span className="text-xl md:text-2xl font-bold text-red-700 bg-white px-4 py-2 hover:rounded-lg border border-red-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-red-700 hover:scale-105 rounded-2xl hover:text-white">{deletevalue}</span>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -310,7 +310,7 @@ const Inputcounter = () => {
                                     }}
                                 >
                                     {mainitem.length === 0 && <Message></Message>}
-                                
+
                                     {mainitem.map((item, index) => (
                                         <div
                                             key={index}

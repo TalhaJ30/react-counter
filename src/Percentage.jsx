@@ -22,7 +22,7 @@ const Percentage = () => {
   }
 
   const btn = () => {
-    setadditems(added => added + 1 )
+    setadditems(added => added + 1)
     const value1 = Number(obtainedvalue);
     const value2 = Number(totalvalue);
     const mainresult = Math.floor((value1 / value2 * 100));
@@ -72,8 +72,8 @@ const Percentage = () => {
     if (confirm(`Are you sure to delete card number ${index + 1}`)) {
       console.log(`'Card deleted' , ${index}`);
       setmainitem(mainitem.filter((_, i) => i !== index));
-      
-      setremoveitems(removed => removed + 1 )
+
+      setremoveitems(removed => removed + 1)
     }
     else {
       console.log(`'Card cancel' , ${index}`);
@@ -84,27 +84,27 @@ const Percentage = () => {
   }
 
   const [details, setdetails] = useState(false);
-  const [additems , setadditems] = useState(0);
-  const [removeitems , setremoveitems] = useState(0);
+  const [additems, setadditems] = useState(0);
+  const [removeitems, setremoveitems] = useState(0);
   useEffect(() => {
     if (additems === removeitems) {
-            
+
       setadditems(0);
       setremoveitems(0);
-       // You can add any additional logic here, e.g., show a message or reset counters if needed
-   }
-   else{
-  
-   }
+      // You can add any additional logic here, e.g., show a message or reset counters if needed
+    }
+    else {
+
+    }
   })
   const detailbtn = () => {
     console.log('hello bhai i am working')
-    
-    
+
+
     if (details) {
       setdetails(false)
-    } 
-    else{
+    }
+    else {
       setdetails(true)
     }
   }
@@ -153,22 +153,22 @@ const Percentage = () => {
               <div className="w-full mt-1 flex justify-center">
                 <div className="w-full max-w-xs bg-red-50 border border-red-200 rounded-xl shadow-md p-4 flex items-center justify-center transition-all duration-300 hover:shadow-lg">
                   <p className="text-xl md:text-2xl font-medium text-red-600 text-center break-words">
-                    Result = {result}
+                    <span className="text-red-400">Result</span> <span className="text-blue-400">=</span> <span className="text-green-400">{result}</span>
                   </p>
                 </div>
               </div>
               <div>
                 <div className="">
                   <div className="grid justify-center items-center md:flex md:justify-between md:items-center mt-1.5 flex-wrap">
-                    <h1 className="text-3xl text-red-600 font-medium text-center">Stored calculation</h1>
-                    <button className="border-2 border-red-600 text-red-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all  duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-2.5 mb-2.5 mr-4.5 ml-4.5 md:mr-1 md:ml-1" onClick={() => detailbtn()}>Details</button>
+                    <h1 className="text-3xl text-pink-600 font-medium text-center">Stored calculation</h1>
+                    <button className="border-2 border-orange-600 text-orange-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all  duration-200 hover:bg-orange-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-300 mt-2.5 mb-2.5 mr-4.5 ml-4.5 md:mr-1 md:ml-1" onClick={() => detailbtn()}>Details</button>
                   </div>
                   {details &&
                     <>
                       <div className=" grid justify-center items-center pt-3">
-                        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 p-3 bg-gradient-to-r from-red-50 via-white to-red-100 rounded-xl shadow-md  border-red-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1 border-2 mt-3">
+                        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 p-3 bg-gradient-to-r from-blue-50 via-white to-blue-100 rounded-xl shadow-md  border-blue-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1 border-2 mt-3">
                           <div className="flex items-center gap-2">
-                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500 text-xl font-bold shadow">
+                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-500 text-xl font-bold shadow">
                               <span className="group relative inline-block">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -186,22 +186,22 @@ const Percentage = () => {
                                 </svg>
                               </span>
                             </span>
-                            <span className="text-lg md:text-xl font-semibold text-red-600">Added items</span>
+                            <span className="text-lg md:text-xl font-semibold text-blue-600">Added items</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-base md:text-lg text-gray-500">Total:</span>
-                            <span className="text-xl md:text-2xl font-bold text-red-700 bg-white px-4 py-2 hover:rounded-lg border border-red-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-red-700 hover:scale-105 rounded-2xl hover:text-white">{additems}</span>
+                            <span className="text-xl md:text-2xl font-bold text-blue-700 bg-white px-4 py-2 hover:rounded-lg border border-blue-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-blue-700 hover:scale-105 rounded-2xl hover:text-white">{additems}</span>
 
                           </div>
                         </div>
-                        <div className="w-full flex flex-col md:flex-row items-center mt-3 justify-between gap-4 p-3 bg-gradient-to-r from-red-50 via-white to-red-100 rounded-xl shadow-md  border-red-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1 border-2">
+                        <div className="w-full flex flex-col md:flex-row items-center mt-3 justify-between gap-4 p-3 bg-gradient-to-r from-green-50 via-white to-green-100 rounded-xl shadow-md  border-green-200 mb-2 transition-all duration-300 hover:scale-105 hover:translate-y-1 border-2">
                           <div className="flex items-center gap-2">
-                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500 text-xl font-bold shadow">
+                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-500 text-xl font-bold shadow">
                               <span className="group relative inline-block">
                                 {/* Delete (Trash) Icon */}
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
-                                  className="h-5 w-5 text-red-500 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12"
+                                  className="h-5 w-5 text-green-500 transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12"
                                   fill="none"
                                   viewBox="0 0 24 24"
                                   stroke="currentColor"
@@ -216,11 +216,11 @@ const Percentage = () => {
 
                               </span>
                             </span>
-                            <span className="text-lg md:text-xl font-semibold text-red-600">Deleted item</span>
+                            <span className="text-lg md:text-xl font-semibold text-green-600">Deleted item</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-base md:text-lg text-gray-500">Total:</span>
-                            <span className="text-xl md:text-2xl font-bold text-red-700 bg-white px-4 py-2 hover:rounded-lg border border-red-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-red-700 hover:scale-105 rounded-2xl hover:text-white">{removeitems}</span>
+                            <span className="text-xl md:text-2xl font-bold text-green-700 bg-white px-4 py-2 hover:rounded-lg border border-green-200 shadow-inner min-w-[60px] text-center transition-all duration-200 hover:bg-green-700 hover:scale-105 rounded-2xl hover:text-white">{removeitems}</span>
 
                           </div>
                         </div>
@@ -291,7 +291,7 @@ const Percentage = () => {
                         </div>
                       </div>
 
-                  ))}
+                    ))}
                   </div>
 
                 </div>
