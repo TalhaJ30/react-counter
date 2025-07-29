@@ -115,7 +115,9 @@ const Inputcounter = () => {
     const [deletevalue , setdeletevalue] = useState(0);
     const [details, setdetails] = useState(false); 
     
+
     useEffect(() => {
+        setTimeout(() => {
         if (initValue === deletevalue) {
            setInitValue(0);
            setdeletevalue(0);
@@ -123,7 +125,14 @@ const Inputcounter = () => {
         else{
        
         }
+        }, 500);
+
+
+
     })
+
+
+
 
     const init = () => {
         if (details) {

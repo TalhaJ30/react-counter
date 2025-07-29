@@ -235,57 +235,65 @@ const Percentage = () => {
 
                 </div>
                 {mainitem.length === 0 && <Message></Message>}
-                <div className="grid grid-cols-1   mt-4">
-                  {mainitem.map((item, index) => (
-                    <div key={index}>
-                      <div className="flex justify-end items-start relative">
-                        <button
-                          className="absolute top-2 right-2 border-2 border-red-300 bg-white rounded-full w-9 h-9 flex items-center justify-center text-red-500 font-bold text-2xl hover:bg-red-100 transition hover:rotate-90 duration-200 active:rotate-45"
-                          onClick={() => carddeletebtn(index)}
-                        >
-                          ×
-                        </button>
-                      </div>
-                      <div
+                <div className="grid grid-cols-1 bg-red-50 rounded-2xl   mt-4">
+                  <div className="overflow-auto scrollbar-thin scrollbar-thumb-red-200 scrollbar-track-red-50 h-64"  style={{
+                                        scrollbarWidth: "thin",
+                                        scrollbarColor: "transparent transparent",
+                                        borderRadius: "1rem",
+                                        backgroundColor: "transparent",
+                                    }}>
+                    {mainitem.map((item, index) => (
+                      <div key={index}>
+                        <div className="flex justify-end items-start relative">
+                          <button
+                            className="absolute top-2 right-2 border-2 border-red-300 bg-white rounded-full w-9 h-9 flex items-center justify-center text-red-500 font-bold text-2xl hover:bg-red-100 transition hover:rotate-90 duration-200 active:rotate-45"
+                            onClick={() => carddeletebtn(index)}
+                          >
+                            ×
+                          </button>
+                        </div>
+                        <div
 
-                        className="bg-gradient-to-br from-pink-100 via-red-50 to-yellow-100 border-2 border-red-200 rounded-2xl shadow-lg pl-4 pr-4 pt-3.5 pb-3.5 flex flex-col items-center justify-center transition-all duration-300  mb-4 hover:scale-105 hover:shadow-2xl mr-5 mt-4 ml-5"
-                      >
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-l md:text-xl bg-red-400 text-white px-2 py-0.5 rounded-full shadow-sm font-bold tracking-widest">
-                            #{index + 1}
-                          </span>
-                        </div>
-                        <div className="flex flex-col items-center w-full">
-                          <div className="flex items-center flex-wrap w-full justify-between border-2 border-red-300 pl-1.5 rounded-xl pr-1.5 transition-all duration-200 hover:bg-pink-100 hover:border-pink-200 hover:scale-105 hover:shadow-md mt-1">
-                            <span className="text-xl font-semibold text-pink-600 pl-1 pt-1 pb-1">
-                              Obtained:
-                            </span>
-                            <span className="text-xl font-bold text-pink-500 break-words max-w-full pr-1 pt-1 pb-1">
-                              {item.obtained}
+                          className="bg-gradient-to-br from-pink-100 via-red-50 to-yellow-100 border-2 border-red-200 rounded-2xl shadow-lg pl-4 pr-4 pt-3.5 pb-3.5 flex flex-col items-center justify-center transition-all duration-300  mb-4 hover:scale-105 hover:shadow-lg mr-5 mt-4 ml-5"
+                        >
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="text-l md:text-xl bg-red-400 text-white px-2 py-0.5 rounded-full shadow-sm font-bold tracking-widest">
+                              #{index + 1}
                             </span>
                           </div>
-                          <div className="flex items-center flex-wrap w-full justify-between mt-2 border-2 border-red-300 rounded-xl pl-1.5 pr-1.5 transition-all duration-200 hover:bg-orange-100 hover:border-orange-200 hover:scale-105 hover:shadow-md">
-                            <span className="text-xl font-semibold text-orange-500 pl-1 pt-1 pb-1">
-                              Total:
+                          <div className="flex flex-col items-center w-full">
+                            <div className="flex items-center flex-wrap w-full justify-between border-2 border-red-300 pl-1.5 rounded-xl pr-1.5 transition-all duration-200 hover:bg-pink-100 hover:border-pink-200 hover:scale-105 hover:shadow-md mt-1">
+                              <span className="text-xl font-semibold text-pink-600 pl-1 pt-1 pb-1">
+                                Obtained:
+                              </span>
+                              <span className="text-xl font-bold text-pink-500 break-words max-w-full pr-1 pt-1 pb-1">
+                                {item.obtained}
+                              </span>
+                            </div>
+                            <div className="flex items-center flex-wrap w-full justify-between mt-2 border-2 border-red-300 rounded-xl pl-1.5 pr-1.5 transition-all duration-200 hover:bg-orange-100 hover:border-orange-200 hover:scale-105 hover:shadow-md">
+                              <span className="text-xl font-semibold text-orange-500 pl-1 pt-1 pb-1">
+                                Total:
+                              </span>
+                              <span className="text-xl font-bold text-orange-500 break-words max-w-full pr-1 pt-1 pb-1">
+                                {item.total}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="w-full border-1 rounded-full border-red-200 my-3"></div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-base font-medium text-gray-500">
+                              Percentage:
                             </span>
-                            <span className="text-xl font-bold text-orange-500 break-words max-w-full pr-1 pt-1 pb-1">
-                              {item.total}
+                            <span className="text-2xl font-extrabold text-green-500 drop-shadow-lg">
+                              {item.result}%
                             </span>
                           </div>
-                        </div>
-                        <div className="w-full border-1 rounded-full border-red-200 my-3"></div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-base font-medium text-gray-500">
-                            Percentage:
-                          </span>
-                          <span className="text-2xl font-extrabold text-green-500 drop-shadow-lg">
-                            {item.result}%
-                          </span>
                         </div>
                       </div>
-                    </div>
 
                   ))}
+                  </div>
+
                 </div>
               </div>
             </>
