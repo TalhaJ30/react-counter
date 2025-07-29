@@ -234,14 +234,15 @@ const Percentage = () => {
 
 
                 </div>
-                {mainitem.length === 0 && <Message></Message>}
+
                 <div className="grid grid-cols-1 bg-red-50 rounded-2xl   mt-4">
-                  <div className="overflow-auto scrollbar-thin scrollbar-thumb-red-200 scrollbar-track-red-50 h-64"  style={{
-                                        scrollbarWidth: "thin",
-                                        scrollbarColor: "transparent transparent",
-                                        borderRadius: "1rem",
-                                        backgroundColor: "transparent",
-                                    }}>
+                  <div className="overflow-auto scrollbar-thin scrollbar-thumb-red-200 scrollbar-track-red-50 h-64" style={{
+                    scrollbarWidth: "thin",
+                    scrollbarColor: "transparent transparent",
+                    borderRadius: "1rem",
+                    backgroundColor: "transparent",
+                  }}>
+                    {mainitem.length === 0 && <Message></Message>}
                     {mainitem.map((item, index) => (
                       <div key={index}>
                         <div className="flex justify-end items-start relative">
