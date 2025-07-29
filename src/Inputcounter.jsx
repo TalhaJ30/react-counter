@@ -2,13 +2,13 @@ import React, { useEffect, useState} from "react";
 import Message from "./message";
 const Inputcounter = () => {
 
-
-
-    const [number, setnumber] = useState();
-    const [anothernumber, setanothernumber] = useState();
-    const [symboll, setsymboll] = useState();
-    const [result, setresult] = useState();
+    // Fix: Initialize all state variables with empty strings to prevent controlled/uncontrolled input issues
+    const [number, setnumber] = useState('');
+    const [anothernumber, setanothernumber] = useState('');
+    const [symboll, setsymboll] = useState('');
+    const [result, setresult] = useState('');
     const [show, setshow] = useState(false);
+    
     const input_1 = (event) => {
         setnumber(event.target.value)
     }
@@ -26,6 +26,7 @@ const Inputcounter = () => {
             setnumber('');
             setanothernumber('');
             setsymboll('');
+            setresult('');
             setshow(false);
             setmainitem([]);
             setInitValue(0);
@@ -69,18 +70,12 @@ const Inputcounter = () => {
 
         if (num1 == 0) {
             setshow(false);
-
-            alert('1:First Input is Empty');
-            setanothernumber('');
-            setsymboll('');
-        }
-        else {
-            console.log('num1 no');
-
-        }
-        if (symboll == 0) {
-            setshow(false);
-         
+      
+        if (!number  || !anothernumber || !symboll  === 0) {
+        
+            setresult('hello bhai');
+            return;
+            
             alert('2:Symboll Input is Empty');
             setanothernumber('');
             setnumber('');
@@ -93,15 +88,10 @@ const Inputcounter = () => {
             setshow(false);
             
             alert('3:Third Input is Empty');
-            setnumber('');
-            setsymboll('');
-
-        }
-        else {
-          
-
-        }
-
+            setresult('hello bhai');
+            return;
+            
+          }
         // setInitValue(prev => {
         //     const newValue = prev + 1;
         //     console.log(newValue);
@@ -164,6 +154,7 @@ const Inputcounter = () => {
     const [initValue, setInitValue] = useState(0);
     const [deletevalue , setdeletevalue] = useState(0);
     const [details, setdetails] = useState(false); 
+    
     useEffect(() => {
         // Logic: Check if all added items have been deleted (i.e., mainitem is empty and initValue equals deletevalue)
         if (initValue === deletevalue) {
@@ -362,22 +353,22 @@ const Inputcounter = () => {
                                 
                                     {mainitem.map((item, index) => (
                                         <>
-                                            <div
-                                                key={index}
-                                                className={`border-b-2 border-red-200 last:border-b-0 py-2 px-3 flex items-center justify-between bg-white rounded-lg shadow-sm mb-3 transition-all duration-200 hover:bg-red-100 hover:scale-105 hover:shadow-md flex-wrap  `}
+                                        <div
+                                            key={index}
+                                            className={`border-b-2 border-red-200 last:border-b-0 py-2 px-3 flex items-center justify-between bg-white rounded-lg shadow-sm mb-3 transition-all duration-200 hover:bg-red-100 hover:scale-105 hover:shadow-md flex-wrap  `}
 
-                                            >
-                                                <h3 className="text-lg font-medium text-red-400 transition-colors duration-200 hover:text-red-400 text-center flex-wrap">
-                                                    <span className="text-red-400 border-2 border-red-200 rounded-full pl-1 pr-1">{index + 1}</span> <span className="text-blue-400">:</span> <span className="text-red-500">{item.num1}</span> <span className="font-medium text-blue-400">{item.symboll}</span> <span className="text-red-500">{item.num2}</span> <span className="text-blue-400">=</span> <span className="text-red-500">{item.result}</span>
-                                                </h3>
-                                                <div>
-                                                    <button
-                                                        className="bg-red-200 text-red-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-2.5 mb-2.5 mr-1 ml-4.5" onClick={() => DELbtn(index)}
-                                                    >
-                                                        Delete
-                                                    </button>
-                                                </div>
+                                        >
+                                            <h3 className="text-lg font-medium text-red-400 transition-colors duration-200 hover:text-red-400 text-center flex-wrap">
+                                                <span className="text-red-400 border-2 border-red-200 rounded-full pl-1 pr-1">{index + 1}</span> <span className="text-blue-400">:</span> <span className="text-red-500">{item.num1}</span> <span className="font-medium text-blue-400">{item.symboll}</span> <span className="text-red-500">{item.num2}</span> <span className="text-blue-400">=</span> <span className="text-red-500">{item.result}</span>
+                                            </h3>
+                                            <div>
+                                                <button
+                                                    className="bg-red-200 text-red-600 font-medium px-4 py-1 rounded-lg shadow-sm transition-all duration-200 hover:bg-red-400 hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 mt-2.5 mb-2.5 mr-1 ml-4.5" onClick={() => DELbtn(index)}
+                                                >
+                                                    Delete
+                                                </button>
                                             </div>
+                                        </div>
 
                                         </>
 
