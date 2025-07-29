@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from "react";
-import Message from "./message";
+import Message from "./Message";
 const Inputcounter = () => {
 
     // Fix: Initialize all state variables with empty strings to prevent controlled/uncontrolled input issues
