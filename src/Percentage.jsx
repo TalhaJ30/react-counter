@@ -235,7 +235,7 @@ const Percentage = () => {
 
                 </div>
 
-                <div className="grid grid-cols-1 bg-red-50 rounded-2xl   mt-4">
+                <div className="grid grid-cols-1 bg-red-50 rounded-2xl pl-1.5 pr-1.5   mt-4">
                   <div className="overflow-auto scrollbar-thin scrollbar-thumb-red-200 scrollbar-track-red-50 h-64" style={{
                     scrollbarWidth: "thin",
                     scrollbarColor: "transparent transparent",
